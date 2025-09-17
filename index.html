@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DreamTech Architects</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      background: #f4f4f9;
+      color: #333;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 22px;
+      color: #f7c04a;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav ul li {
+      margin-left: 25px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #f7c04a;
+    }
+
+    /* Hero */
+    .hero {
+      height: 90vh;
+      background: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+    .hero h2 {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+    .hero button {
+      padding: 12px 25px;
+      border: none;
+      background: #f7c04a;
+      color: #111;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .hero button:hover {
+      background: #111;
+      color: #f7c04a;
+      border: 1px solid #f7c04a;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 10%;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 32px;
+      color: #111;
+    }
+
+    /* About */
+    .about p {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* Services */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .service-box {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: 0.3s;
+    }
+    .service-box:hover {
+      transform: translateY(-5px);
+    }
+    .service-box h3 {
+      margin-bottom: 15px;
+      color: #f7c04a;
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .project {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .project img {
+      width: 100%;
+      display: block;
+      transition: 0.5s;
+    }
+    .project:hover img {
+      transform: scale(1.1);
+    }
+    .project .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: 0.3s;
+    }
+    .project:hover .overlay {
+      opacity: 1;
+    }
+
+    /* Contact */
+    .contact form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .contact input, .contact textarea, .contact button {
+      margin-bottom: 15px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .contact button {
+      background: #f7c04a;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .contact button:hover {
+      background: #111;
+      color: #f7c04a;
+      border: 1px solid #f7c04a;
+    }
+    .success-message {
+      display: none;
+      text-align: center;
+      margin-top: 15px;
+      color: green;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+      nav ul {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>DreamTech Architects</h1>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <div>
+      <h2>Building Dreams Into Reality</h2>
+      <p>Modern, Innovative & Sustainable Architectural Designs</p>
+      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>About Us</h2>
+    <p>
+      At DreamTech Architects, we design modern structures that combine elegance,
+      functionality, and sustainability. With a passion for architecture and a
+      vision for the future, our team transforms ideas into iconic buildings.
+    </p>
+  </section>
+
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service-box">
+        <h3>Architectural Design</h3>
+        <p>Innovative designs that balance beauty and utility.</p>
+      </div>
+      <div class="service-box">
+        <h3>Interior Design</h3>
+        <p>Modern interiors tailored to your lifestyle and needs.</p>
+      </div>
+      <div class="service-box">
+        <h3>Consultation</h3>
+        <p>Expert advice on planning, budgeting, and execution.</p>
+      </div>
+      <div class="service-box">
+        <h3>Project Management</h3>
+        <p>Efficient coordination from design to final construction.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <h2>Our Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80" alt="Project 1">
+        <div class="overlay">Luxury Villa</div>
+      </div>
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=800&q=80" alt="Project 2">
+        <div class="overlay">Corporate Office</div>
+      </div>
+      <div class="project">
+        <img src="Screenshot_17-9-2025_84222_static.vecteezy.com.jpeg" alt="Project 3">
+        <div class="overlay">Modern Apartments</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="success-message" id="successMessage">✅ Your message was sent!</div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 DreamTech Architects. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Fake form submit
+    const form = document.getElementById("contactForm");
+    const successMessage = document.getElementById("successMessage");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      successMessage.style.display = "block";
+      form.reset();
+      setTimeout(() => successMessage.style.display = "none", 3000);
+    });
+  </script>
+</body>
+</html>
